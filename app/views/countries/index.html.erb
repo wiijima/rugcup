@@ -1,0 +1,17 @@
+<% content_for :cover do %>
+  <div class="cover">
+    <div class="cover-innner">
+      <div class="cover-contents">
+        <h1>2019 RUGBY WORLD CUP</h1>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<p>プールA</p>
+<br>
+<% @countries.each do |country| %> <!--viewで条件つけて表示は可能？poolAのやつだけとか。あと＠つけるつけないの違いは？つけないならいつ定義した？ -->
+  <li>
+    <%= link_to country.name, country_path(country) %> 
+  </li>
+<% end %>

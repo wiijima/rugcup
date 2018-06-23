@@ -1,0 +1,20 @@
+
+<p>
+  プール<%= @country.pool %>
+</p>
+<h1>
+  <%= @country.name %> 
+</h1>
+<br>
+<br>
+<br>
+<br>
+<p>
+  マッチスケジュール
+</p>
+<br>
+<% @matches.each do |match| %> <!--viewで条件つけて表示は可能？poolAのやつだけとか。あと＠つけるつけないの違いは？つけないならいつ定義した？ -->
+  <li>
+    <%= match.date  %> 
+  </li>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>
+  <%= @venue.name %> 
+</h1>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<% @matches.each do |match| %> <!--viewで条件つけて表示は可能？poolAのやつだけとか。あと＠つけるつけないの違いは？つけないならいつ定義した？ -->
+  <li>
+    <%= match.date  %> 
+  </li>
+<% end %>
