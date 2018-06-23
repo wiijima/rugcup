@@ -8,10 +8,14 @@
   </div>
 <% end %>
 
-<p>プールA</p>
-<br>
-<% @countries.each do |country| %> <!--viewで条件つけて表示は可能？poolAのやつだけとか。あと＠つけるつけないの違いは？つけないならいつ定義した？ -->
-  <li>
-    <%= link_to country.name, country_path(country) %> 
-  </li>
+
+<% @countries_wity_pool.each do |pool, countres| %>
+  <p><%= pool %></p>
+  <ul>
+    <% countres.each do |country| %>
+      <li>
+        <%= link_to country.name, country_path(country) %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>

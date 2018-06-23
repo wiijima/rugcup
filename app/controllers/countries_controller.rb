@@ -1,6 +1,6 @@
 class CountriesController < ApplicationController
   def index #poolごとにcountryを表示
-    @countries = Country.all#これならうまくいく。でも.find_by(pool: 'A')だとうまくいかない。これならpoolAだけ抽出されるんじゃ無いの？   
+    @countries_wity_pool = Country.all.group_by(&:pool)
   end
 
   def show
