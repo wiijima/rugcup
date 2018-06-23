@@ -1,6 +1,6 @@
 class CountriesController < ApplicationController
   def index #poolごとにcountryを表示
-    @countries_wity_pool = Country.all.group_by(&:pool)
+    @countries_with_pool = Country.all.group_by(&:pool)
   end
 
   def show
