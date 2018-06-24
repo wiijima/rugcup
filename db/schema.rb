@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622232536) do
+ActiveRecord::Schema.define(version: 20180624035637) do
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180622232536) do
     t.string   "time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "pool"
     t.index ["country_id", "opponent_id"], name: "index_matches_on_country_id_and_opponent_id", unique: true, using: :btree
     t.index ["country_id"], name: "index_matches_on_country_id", using: :btree
     t.index ["opponent_id"], name: "index_matches_on_opponent_id", using: :btree
@@ -40,9 +41,7 @@ ActiveRecord::Schema.define(version: 20180622232536) do
     t.string   "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "district"
   end
 
-  add_foreign_key "matches", "countries"
-  add_foreign_key "matches", "countries", column: "opponent_id"
-  add_foreign_key "matches", "venues"
 end

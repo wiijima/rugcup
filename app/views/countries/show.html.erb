@@ -1,4 +1,3 @@
-
 <p>
   プール<%= @country.pool %>
 </p>
@@ -13,8 +12,21 @@
   マッチスケジュール
 </p>
 <br>
-<% @matches.each do |match| %> <!--viewで条件つけて表示は可能？poolAのやつだけとか。あと＠つけるつけないの違いは？つけないならいつ定義した？ -->
+日付
+キックオフ
+試合会場
+対戦相手
+<% @matches.each do |match| %> 
   <li>
     <%= match.date  %> 
+    <%= match.time %>
+    <%= link_to Venue.find(match.venue_id).name, venue_path(Venue.find(match.venue_id)) %>
+
+    <% if @country.id == match.country_id %>       <!--対戦相手-->
+      <%= link_to Country.find(match.opponent_id).name, country_path(Country.find(match.opponent_id)) %>
+    <% elsif @country.id == match.opponent_id %>
+      <%= link_to Country.find(match.country_id).name, country_path(Country.find(match.country_id)) %>
+    <% end %>
+    
   </li>
 <% end %>

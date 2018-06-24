@@ -5,7 +5,7 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
-    @matches = Match.all
-    #@matches = Match.find_by(pool: params[:pool])   本当はこれで行きたいがうまくいかない
+    @matches = Match.where(country_id: params[:id]).or(Match.where(opponent_id: params[:id])) #country_idかopponent_idがparams[:id]のMatchを表示
   end
 end
+

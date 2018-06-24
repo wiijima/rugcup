@@ -1,9 +1,9 @@
 class CreateMatches < ActiveRecord::Migration[5.0]
   def change
     create_table :matches do |t|
-      t.references :country, foreign_key: true
-      t.references :opponent, foreign_key: { to_table: :countries }
-      t.references :venue, foreign_key: true
+      t.references :country
+      t.references :opponent
+      t.references :venue
       t.string :date
       t.string :time
 

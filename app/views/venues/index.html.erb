@@ -10,8 +10,13 @@
 
 <p>開催地一覧</p>
 <br>
-<% @venues.each do |venue| %>
-  <li>
-    <%= link_to venue.name, venue_path(venue) %> 
-  </li>
+<% @venues_with_district.each do |district, venues| %>
+  <p><%= district %></p>
+  <ul>
+    <% venues.each do |venue| %>
+      <li>
+        <%= link_to venue.name, venue_path(venue) %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
