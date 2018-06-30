@@ -8,8 +8,8 @@ class VenuesController < ApplicationController
     @matches = Match.where(venue_id: params[:id])
     
     @hash = Gmaps4rails.build_markers(@venue) do |place, marker|
-      marker.lat place.latitude
-      marker.lng place.longitude
+      marker.lat place.lat
+      marker.lng place.lng
       marker.infowindow place.name
     end
   end
