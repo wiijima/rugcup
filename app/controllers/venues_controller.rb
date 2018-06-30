@@ -6,5 +6,11 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @matches = Match.where(venue_id: params[:id])
+    
+    @hash = Gmaps4rails.build_markers(@venue) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.infowindow place.name
+    end
   end
 end
