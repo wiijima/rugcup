@@ -6,30 +6,91 @@
 <br>
 <br>
 <br>
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-6">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th class="text-center">日付</th>
+      <th class="text-center">キックオフ</th>
+      <th class="text-center">プール</th>
+      <th class="text-center">試　合</th>
+    </tr>
+    <% @matches.each do |match| %> 
+      <tr>
+        <td class="text-center"><%= match.date %></td>
+        <td class="text-center"><%= match.time %></td>
+        <td class="text-center"><%= match.pool %></td>
+        <td class="text-center">
+          <%= link_to Country.find(match.country_id).name, country_path(Country.find(match.country_id)) %>
+          　vs　
+          <%= link_to Country.find(match.opponent_id).name, country_path(Country.find(match.opponent_id)) %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @venue.id == 12 %>
+      <tr>
+        <td class="text-center">10/19(土)</td>
+        <td class="text-center">16:15</td>
+        <td class="text-center">準々決勝１</td>
+        <td class="text-center">プールC１位　vs　プールD２位</td>
+      </tr>
+      <tr>
+        <td class="text-center">10/20(日)</td>
+        <td class="text-center">16:15</td>
+        <td class="text-center">準々決勝３</td>
+        <td class="text-center">プールD１位　vs　プールC２位</td>
+      </tr>
+    <% elsif @venue.id == 4 %>
+      <tr>
+        <td class="text-center">10/19(土)</td>
+        <td class="text-center">19:15</td>
+        <td class="text-center">準々決勝２</td>
+        <td class="text-center">プールB１位　vs　プールA２位</td>
+      </tr>
+      <tr>
+        <td class="text-center">10/20(日)</td>
+        <td class="text-center">19:15</td>
+        <td class="text-center">準々決勝４</td>
+        <td class="text-center">プールA１位　vs　プールB２位</td>
+      </tr>
+      <tr>
+        <td class="text-center">11/1(金)</td>
+        <td class="text-center">18:00</td>
+        <td class="text-center">３位決定戦</td>
+        <td class="text-center">　</td>
+      </tr>
+    <% elsif @venue.id == 5 %>
+      <tr>
+        <td class="text-center">10/26(土)</td>
+        <td class="text-center">17:00</td>
+        <td class="text-center">準決勝</td>
+        <td class="text-center">準々決勝１勝者　vs　準々決勝２勝者</td>
+      </tr>
+      <tr>
+        <td class="text-center">10/27(日)</td>
+        <td class="text-center">18:00</td>
+        <td class="text-center">準決勝</td>
+        <td class="text-center">準々決勝３勝者　vs　準々決勝４勝者</td>
+      </tr>
+      <tr>
+        <td class="text-center">11/2(土)</td>
+        <td class="text-center">18:00</td>
+        <td class="text-center">決勝</td>
+        <td class="text-center">　</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 
-日付
-キックオフ
-プール
-試合
-<% @matches.each do |match| %> 
-  <li>
-    <%= match.date  %> 
-    <%= match.time %>
-    <%= match.pool %>
-    
-    <%= link_to Country.find(match.country_id).name, country_path(Country.find(match.country_id)) %>
-    vs
-    <%= link_to Country.find(match.opponent_id).name, country_path(Country.find(match.opponent_id)) %>
-  </li>
-<% end %>
 
 <br>
 <br>
 <br>
+
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-6">
 
 <%= @venue.address %>
 
-<div id='map' style="width: 800px; height: 400px;"></map>
+<div id='map' style="width: 600px; height: 400px;"></map>
 
 <script>
   handler = Gmaps.build('Google');
@@ -37,5 +98,8 @@
     markers = handler.addMarkers(<%= raw(@hash.to_json) %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
   });
 </script>
+
+</div>

@@ -12,21 +12,27 @@
   マッチスケジュール
 </p>
 <br>
-日付
-キックオフ
-試合会場
-対戦相手
-<% @matches.each do |match| %> 
-  <li>
-    <%= match.date  %> 
-    <%= match.time %>
-    <%= link_to Venue.find(match.venue_id).name, venue_path(Venue.find(match.venue_id)) %>
-
-    <% if @country.id == match.country_id %>       <!--対戦相手-->
-      <%= link_to Country.find(match.opponent_id).name, country_path(Country.find(match.opponent_id)) %>
-    <% elsif @country.id == match.opponent_id %>
-      <%= link_to Country.find(match.country_id).name, country_path(Country.find(match.country_id)) %>
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-6">
+  <table class="table table-striped table-bordered ">
+    <tr>
+      <th class="text-center">日付</th>
+      <th class="text-center">キックオフ</th>
+      <th class="text-center">試合会場</th>
+      <th class="text-center">対戦相手</th>
+    </tr>
+    <% @matches.each do |match| %> 
+      <tr>
+        <td class="text-center"><%= match.date %></td>
+        <td class="text-center"><%= match.time %></td>
+        <td><%= link_to Venue.find(match.venue_id).name, venue_path(Venue.find(match.venue_id)) %></td>
+        <td>
+          <% if @country.id == match.country_id %>       <!--対戦相手-->
+            <%= link_to Country.find(match.opponent_id).name, country_path(Country.find(match.opponent_id)) %>
+          <% elsif @country.id == match.opponent_id %>
+            <%= link_to Country.find(match.country_id).name, country_path(Country.find(match.country_id)) %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-    
-  </li>
-<% end %>
+  </table>
+</div>

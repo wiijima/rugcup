@@ -26,8 +26,8 @@ uru = Country.create(name: 'ウルグアイ', pool: 'D')
 
 
 sappo = Venue.create(name: '札幌ドーム', address: '〒062-0045 北海道札幌市豊平区羊ケ丘１', lat: '43.015775', lng: '141.409529', district: '北海道')
-kama = Venue.create(name: '釜石鵜住居復興スタジアム', address: '〒026-0301 岩手県釜石市鵜住居町', lat: '39.360816', lng: '141.626520', district: '東北')
-gaya = Venue.create(name: '熊谷ラグビー場', address: '〒360-0004 埼玉県熊谷市上川上８１０', lat: '36.163881', lng: '139.411142', district: '関東')
+kama = Venue.create(name: '釜石鵜住居復興スタジアム', address: '〒026-0301 岩手県釜石市鵜住居町', lat: '39.327829', lng: '141.892270', district: '東北')
+gaya = Venue.create(name: '熊谷ラグビー場', address: '〒360-0004 埼玉県熊谷市上川上８１０', lat: '36.168259', lng: '139.402448', district: '関東')
 aji = Venue.create(name: '味の素スタジアム', address: '〒182-0032 東京都調布市西町 西町３７６−３', lat: '35.664270', lng: '139.527151', district: '関東')
 yoko = Venue.create(name: '横浜国際総合競技場', address: '〒222-0036 神奈川県横浜市港北区小机町３３００', lat: '35.509946', lng: '139.606394', district: '関東')
 eco = Venue.create(name: '小笠山総合運動公園エコパスタジアム', address: '〒437-0031 静岡県袋井市愛野２３００−１', lat: '34.743556', lng: '137.970508', district: '中部')

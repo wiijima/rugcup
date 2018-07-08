@@ -11,6 +11,7 @@ class VenuesController < ApplicationController
       marker.lat place.lat
       marker.lng place.lng
       marker.infowindow place.name
+      
     end
   end
 end
